@@ -7,6 +7,9 @@ import { useState } from "react";
 import Plus from "@/svgr/icon-plus.svg";
 import Minus from "@/svgr/icon-minus.svg";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { exit } from "process";
+
 interface Props {
     readonly questionId: string;
     readonly question: string;
@@ -38,17 +41,21 @@ export const FaqItem: React.FunctionComponent<Props> = ({
                 {question}
                 <span>{!showAnswer ? <Plus /> : <Minus />}</span>
             </button>
-
-            {showAnswer && (
-                <div
-                    id={`question-${questionId}`}
-                    role="region"
-                    aria-labelledby={`content-${questionId}`}
-                    className={styles.content_container}
-                >
-                    <p>{answer}</p>
-                </div>
-            )}
+            <AnimatePresence>
+                {showAnswer && (
+                    <motion.div
+                        id={`question-${questionId}`}
+                        role="region"
+                        aria-labelledby={`content-${questionId}`}
+                        className={styles.content_container}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        <p>{answer}</p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </li>
     );
 };

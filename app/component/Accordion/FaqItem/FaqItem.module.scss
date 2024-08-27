@@ -47,6 +47,7 @@
 
 .content_container {
     font-size: 0.875rem;
+
     @include breakpoint($medium) {
         font-size: 1rem;
     }
