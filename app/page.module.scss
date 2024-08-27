@@ -1,0 +1,58 @@
+@use "styles/helpers" as *;
+
+.main {
+    min-height: 100vh;
+    background: url("../public/assets/images/background-pattern-mobile.svg"),
+        var(--light-pink);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint($medium) {
+        background: url("../public/assets/images/background-pattern-desktop.svg"),
+            var(--light-pink);
+        background-repeat: no-repeat;
+    }
+
+    &_container {
+        background-color: var(--white);
+        border-radius: 8px;
+        width: 90%;
+        max-width: 90%;
+        padding: 15px;
+        box-shadow: 0 32px 56px 0 hsla(281, 100%, 23%, 0.1);
+
+        margin-block: 120px;
+        @include breakpoint($medium) {
+            border-radius: 16px;
+            max-width: 37.5rem;
+            padding: 30px;
+            margin-block: 180px;
+        }
+    }
+}
+
+.header {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-purple);
+    display: flex;
+    align-items: center;
+    @include breakpoint($medium) {
+        font-size: 3.5rem;
+    }
+    span {
+        margin-right: 15px;
+        width: 24px;
+        height: 24px;
+        background-image: url("../public/assets/images/icon-star.svg");
+        background-size: cover;
+        @include breakpoint($medium) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@use "styles/helpers" as *;
+
+.accordion_item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-block: 10px;
+    border-top: 1px solid var(--light-pink);
+
+    @include breakpoint($medium) {
+        padding-block: 15px;
+    }
+
+    &_border_top {
+        border-top: 1px solid transparent;
+    }
+
+    &_btn {
+        border: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--dark-purple);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        cursor: pointer;
+
+        &:active,
+        &:focus {
+            color: var(--dark-purple);
+        }
+        /* &:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 5px;
+        }*/
+        &:hover {
+            color: var(--accent);
+        }
+
+        @include breakpoint($medium) {
+            font-size: 1.125rem;
+        }
+    }
+}
+
+.content_container {
+    font-size: 0.875rem;
+    @include breakpoint($medium) {
+        font-size: 1rem;
+    }
+}
